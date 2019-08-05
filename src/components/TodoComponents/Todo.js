@@ -5,8 +5,8 @@ const Todo = (props) => {
 
     return (
         <div>
-            {console.log("props in Todo.js", props.todo)}
-            <p>{this.props.todo.name}</p>
+            {console.log("props in Todo.js", props)}
+            <p>{props.name}</p>
             <button>Complete</button>
         </div>
 
