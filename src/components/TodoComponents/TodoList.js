@@ -14,7 +14,7 @@ const ToDoList = props => {
                   key={todo.id}
                   name={todo.name}
                   completed={todo.completed}  
-                  
+                  completeItem={props.completeItem}
                 />
             ))}
         </div>

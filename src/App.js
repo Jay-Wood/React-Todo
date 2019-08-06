@@ -3,7 +3,7 @@ import ToDoList from "./components/TodoComponents/TodoList";
 import { buildFailureTestResult } from '@jest/test-result';
 import TodoForm from "./components/TodoComponents/TodoForm";
 
-const ToDoArray = ["rew"];
+const ToDoArray = [];
 
 
 class App extends React.Component {
@@ -28,8 +28,27 @@ class App extends React.Component {
     });
   };
 
+  completeItem = itemId => {
+    // console.log("ID here")
+    console.log("ItemID at start of complete item", itemId)
+    this.setState({
+      ToDoArray: this.state.ToDoArray.map(item => {
+        if(item.id===itemId) {
+          console.log("ID match")
+          return ({
+            ...item, 
+            completed: !item.completed
+          })
+        } else 
+        console.log("Not match", itemId)
+        return item;
+      })  
+    })
+
+  }
 //functions: addToDo, completeToDo, clearCompletedToDos
 //change handlers for each function
+
 
 
   render() {
@@ -44,6 +63,7 @@ class App extends React.Component {
         </div>
           <ToDoList 
           ToDoArray={this.state.ToDoArray}
+          completeItem={this.completeItem}
           />
 
       </div>

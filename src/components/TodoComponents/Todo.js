@@ -4,10 +4,11 @@ import React from "react";
 const Todo = (props) => {
 
     return (
-        <div>
-            {console.log("props in Todo.js", props)}
+        <div className={`item${props.completed ? '-completed' : ''}`}>
             <p>{props.name}</p>
-            <button>Complete</button>
+            <button onClick={() => props.completeItem(props.key)} >Complete Item
+            </button>
+            {console.log("props inside todo.js", props)}
         </div>
 
     )
